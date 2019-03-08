@@ -8,6 +8,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
