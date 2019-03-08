@@ -1,5 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { 
+  MatToolbarModule, 
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +34,7 @@ import { TransactionDeleteComponent } from './components/transaction/transaction
 import { TransactionCreateComponent } from './components/transaction/transaction-create/transaction-create.component';
 import { TransactionDetailComponent } from './components/transaction/transaction-detail/transaction-detail.component';
 import { TransactionUpdateComponent } from './components/transaction/transaction-update/transaction-update.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -47,11 +56,19 @@ import { TransactionUpdateComponent } from './components/transaction/transaction
     TransactionDeleteComponent,
     TransactionCreateComponent,
     TransactionDetailComponent,
-    TransactionUpdateComponent
+    TransactionUpdateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     AuthService,
