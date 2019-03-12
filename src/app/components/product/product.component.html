@@ -1,3 +1,51 @@
-<p>
-  product works!
-</p>
+<h1>Product Index</h1>
+<a mat-raised-button color="primary">Create New Product</a>
+<hr />
+
+<div>
+  <mat-table #table [dataSource]="dataSource">
+
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+    <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+        <mat-cell *matCellDef="let product" class="matColumnSize"> 
+          <i class="material-icons" routerLink="/product/detail/{{product.ProductId}}">library_books</i>
+        </mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="ProductId">
+      <mat-header-cell *matHeaderCellDef> Product Id </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.ProductId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductName">
+      <mat-header-cell *matHeaderCellDef>Product Name</mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.ProductName}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="ProductPrice">
+      <mat-header-cell *matHeaderCellDef>Product Price</mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.ProductPrice}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="Quantity">
+      <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.Quantity}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalPrice">
+        <mat-header-cell *matHeaderCellDef> Total Price </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{product.TotalPrice}} </mat-cell>
+      </ng-container>
+    
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let client">
+        <i mat-icon class="material-icons orange" color="warn" routerLink="/clients/edit/{{client.ClientId}}">edit</i>
+        <i mat-icon class="material-icons red" routerLink="/clients/delete/{{client.ClientId}}">delete</i>
+      </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>

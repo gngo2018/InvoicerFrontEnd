@@ -7,6 +7,8 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+  MatGridListModule,
+  MatTableModule,
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -69,7 +71,9 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
+    MatTableModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatInputModule
   ],
   providers: [

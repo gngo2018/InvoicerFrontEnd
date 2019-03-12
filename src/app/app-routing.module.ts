@@ -30,6 +30,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'invoice', component: InvoiceComponent},
+  {path: 'product', component: ProductComponent},
+  {path: 'transaction', component: TransactionCreateComponent},
   //Home Default Path
   {path: '', component: HomeComponent}
 

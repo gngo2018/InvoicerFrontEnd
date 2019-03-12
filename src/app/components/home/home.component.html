@@ -1,1 +1,17 @@
-<h1>Welcome to Invoicer!</h1>
+<div class="options">
+    <h1>Welcome to Invoicer!</h1>
+    <h3>What would you like to do?</h3>
+    <br />
+    <!--Option Columns-->
+    <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile routerLink="/invoice">
+            <h1>Invoices</h1>
+        </mat-grid-tile>
+        <mat-grid-tile routerLink="/transaction">
+            <h1>Assign Product to Invoice</h1>
+        </mat-grid-tile>
+        <mat-grid-tile routerLink="/product">
+            <h1>Products</h1>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
