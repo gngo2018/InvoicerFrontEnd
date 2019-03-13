@@ -30,11 +30,19 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'invoice', component: InvoiceComponent},
+  {path: 'invoice', children: [ 
+    {path: '', component: InvoiceComponent},
+    {path: 'create', component: InvoiceComponent},
+    {path: 'detail/:id', component: InvoiceDetailComponent},
+    {path: 'update/:id', component: InvoiceUpdateComponent},
+    {path: 'delete/:id', component: InvoiceDeleteComponent}
+  ]},
   {path: 'product', children:[
      {path: '', component: ProductComponent},
-     {path: 'create', component: ProductCreateComponent}
-
+     {path: 'create', component: ProductCreateComponent},
+     {path: 'detail/:id', component: ProductDetailComponent},
+     {path: 'update/:id', component: ProductUpdateComponent},
+     {path: 'delete/:id', component: ProductDeleteComponent}
     ]},
   {path: 'transaction', component: TransactionCreateComponent},
   //Home Default Path

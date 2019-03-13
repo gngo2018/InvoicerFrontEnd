@@ -14,8 +14,20 @@ export class ProductService {
     return this._http.get(`${environment.Api_Url}api/Product`, {headers: this.getHeaders()});
   }
 
+  getProductById(id:string){
+    return this._http.get(`${environment.Api_Url}api/Product/${id}`, {headers: this.getHeaders()});
+  }
+
   createProduct(product: Product){
     return this._http.post(`${environment.Api_Url}api/Product`, product, {headers: this.getHeaders()});
+  }
+
+  updateProduct(product: Product){
+    return this._http.put(`${environment.Api_Url}api/Product`, product, {headers: this.getHeaders()});
+  }
+
+  deleteProduct(id:number){
+    return this._http.delete(`${environment.Api_Url}api/Product/${id}`, {headers: this.getHeaders()});
   }
 
   private getHeaders(){

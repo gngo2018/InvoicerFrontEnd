@@ -4,5 +4,5 @@ export class Product{
     ProductName: string;
     ProductPrice: number;
     Quantity: number;
-    TotalPrice: number;
+    TotalPrice?: number;
 }
