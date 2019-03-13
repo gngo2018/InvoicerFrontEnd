@@ -1,5 +1,5 @@
 <h1>Product Index</h1>
-<a mat-raised-button color="primary">Create New Product</a>
+<a mat-raised-button color="primary" routerLink="/product/create">Create New Product</a>
 <hr />
 
 <div>
@@ -15,11 +15,6 @@
         </mat-cell>
       </ng-container>
 
-    <ng-container matColumnDef="ProductId">
-      <mat-header-cell *matHeaderCellDef> Product Id </mat-header-cell>
-      <mat-cell *matCellDef="let product"> {{product.ProductId}} </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="ProductName">
       <mat-header-cell *matHeaderCellDef>Product Name</mat-header-cell>
       <mat-cell *matCellDef="let product"> {{product.ProductName}} </mat-cell>
@@ -27,7 +22,7 @@
     
     <ng-container matColumnDef="ProductPrice">
       <mat-header-cell *matHeaderCellDef>Product Price</mat-header-cell>
-      <mat-cell *matCellDef="let product"> {{product.ProductPrice}} </mat-cell>
+      <mat-cell *matCellDef="let product">${{product.ProductPrice}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Quantity">
@@ -37,7 +32,7 @@
 
     <ng-container matColumnDef="TotalPrice">
         <mat-header-cell *matHeaderCellDef> Total Price </mat-header-cell>
-        <mat-cell *matCellDef="let product"> {{product.TotalPrice}} </mat-cell>
+        <mat-cell *matCellDef="let product">${{product.TotalPrice}} </mat-cell>
       </ng-container>
     
     <ng-container matColumnDef="buttons">

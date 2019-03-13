@@ -3,7 +3,7 @@
 <hr />
 
 <form (ngSubmit)="onSubmit()" [formGroup]="_registerForm">
-  <div>
+  <div class="form">
     <div>
       <mat-form-field>
         <input matInput placeholder="Email" formControlName="email" type="email" required />
@@ -19,6 +19,6 @@
         <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" required />
       </mat-form-field>
     </div>
+    <button mat-raised-button class="nav-btn" type="submit">Register</button>
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Register</button>
 </form>

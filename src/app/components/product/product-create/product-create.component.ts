@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-create',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCreateComponent implements OnInit {
 
-  constructor() { }
+  productForm: FormGroup;
+
+  constructor(private _productService: ProductService, private _form: FormBuilder, private _router: Router) { 
+    this.createForm();
+  }
 
   ngOnInit() {
+  }
+
+  createForm(){
+    this.productForm = this._form.group({
+      ProductName: new FormControl,
+      ProductPrice: new FormControl,
+      Quantity: new FormControl,
+    });
+  }
+
+  onSubmit(){
+    console.log(this.productForm.value)
+    this._productService.createProduct(this.productForm.value).subscribe(data => {
+      this._router.navigate(['/product']);
+    });
   }
 
 }

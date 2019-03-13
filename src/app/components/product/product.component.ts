@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
 
-  columnNames = ['details', 'ProductId', 'ProductName', 'ProductPrice', 'Quantity', 'TotalPrice', 'buttons'];
+  columnNames = ['details', 'ProductName', 'ProductPrice', 'Quantity', 'TotalPrice', 'buttons'];
   dataSource: MatTableDataSource<Product>
 
   constructor(private _productService: ProductService) { }

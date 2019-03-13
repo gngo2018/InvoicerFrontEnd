@@ -1,8 +1,16 @@
 .example-fill-remaining-space{
     flex: 1 1 auto;
 }
-
+.text{
+    color: white;
+}
 .nav-btn{
     margin-right: 0.5em;
-    background-color: yellow;
+    background-color: #277554;
+    border: 2px solid black;
+    border-radius: 3px;
+    font-weight: bold;
+}
+mat-toolbar{
+    background: #294F6D;
 }

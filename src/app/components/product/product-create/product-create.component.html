@@ -1,3 +1,25 @@
-<p>
-  product-create works!
-</p>
+<h1>Create Product</h1>
+<hr>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="productForm">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Product Name" formControlName="ProductName" type="ProductName" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Price (No $ Needed)" formControlName="ProductPrice" type="ProductPrice" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Quantity" formControlName="Quantity" type="Quantity" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Product</button>
+</form>
+
+<a mat-button routerLink="/product">Back to List</a>
