@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'invoice', children: [ 
     {path: '', component: InvoiceComponent},
-    {path: 'create', component: InvoiceComponent},
+    {path: 'create', component: InvoiceCreateComponent},
     {path: 'detail/:id', component: InvoiceDetailComponent},
     {path: 'update/:id', component: InvoiceUpdateComponent},
     {path: 'delete/:id', component: InvoiceDeleteComponent}

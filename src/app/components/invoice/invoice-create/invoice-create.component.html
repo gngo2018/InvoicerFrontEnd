@@ -1,3 +1,30 @@
-<p>
-  invoice-create works!
-</p>
+<h1>Create an Invoice</h1>
+<hr />
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="invoiceForm">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Company Name" formControlName="CompanyName" type="CompanyName" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Company Address" formControlName="CompanyAddress" type="CompanyAddress" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Bill Name" formControlName="BillName" type="BillName" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Bill Address" formControlName="BillAddress" type="BillAddress" required/>
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Invoice</button>
+</form>
+
+<a mat-button routerLink="/invoice">Back to List</a>
