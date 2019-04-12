@@ -44,7 +44,10 @@ const routes: Routes = [
      {path: 'update/:id', component: ProductUpdateComponent},
      {path: 'delete/:id', component: ProductDeleteComponent}
     ]},
-  {path: 'transaction', component: TransactionCreateComponent},
+  {path: 'transaction', children:[
+   {path: 'create',component: TransactionCreateComponent},
+   {path: 'index', component:TransactionComponent}
+  ]},
   //Home Default Path
   {path: '', component: HomeComponent}
 

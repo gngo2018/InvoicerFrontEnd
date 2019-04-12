@@ -1,3 +1,28 @@
-<p>
-  transaction-create works!
-</p>
+<h1>Assign Product to Invoice</h1>
+<hr />
+<div>
+  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="transactionForm">
+    <div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="Invoice" formControlName="InvoiceId" type="InvoiceId" required>
+            <mat-option *ngFor="let invoice of invoiceSelect" [value]="invoice.InvoiceId">
+              {{invoice.InvoiceId}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+            <mat-select placeholder="Product" formControlName="ProductId" type="ProductId" required>
+                <mat-option *ngFor="let product of productSelect" [value]="product.ProductId">
+                  {{product.ProductName}}
+                </mat-option>
+              </mat-select>
+          <!-- <input matInput placeholder="Song Id" formControlName="SongEntityId" type="SongEntityId" required /> -->
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button class="nav-btn" type="submit">Add Product to Invoice</button>
+  </form>
+</div>

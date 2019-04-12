@@ -5,6 +5,12 @@ export interface Invoice{
     CompanyAddress: string;
     BillName: string;
     BillAddress: string;
+    GrandTotal: number;
+    // Product list fields
+    ProductName: string;
+    ProductPrice: number;
+    Quantity: number;
+    TotalPrice?: number;
     CreatedUtc?: Date;
     ModifiedUtc?: Date;
 }

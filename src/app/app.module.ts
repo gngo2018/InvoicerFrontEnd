@@ -9,6 +9,8 @@ import {
   MatInputModule,
   MatGridListModule,
   MatTableModule,
+  MatOptionModule,
+  MatSelectModule,
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -73,6 +75,8 @@ import { HomeComponent } from './components/home/home.component';
     MatToolbarModule,
     MatTableModule,
     MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
     MatGridListModule,
     MatInputModule
   ],

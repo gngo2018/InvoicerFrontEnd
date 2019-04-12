@@ -20,5 +20,4 @@ export class InvoiceComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Invoice>(invoices);
     });
   }
-
 }

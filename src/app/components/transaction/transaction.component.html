@@ -1,3 +1,37 @@
-<p>
-  transaction works!
-</p>
+<!-- List of all transactions for admin to view -->
+<h1>Transaction Index</h1>
+<a mat-raised-button color="primary" routerLink="/transaction/create">Create New Transaction</a>
+<hr />
+
+<div>
+  <mat-table #table [dataSource]="dataSource">
+
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+    <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+        <mat-cell *matCellDef="let invoice" class="matColumnSize"> 
+          <i class="material-icons" routerLink="/invoice/detail/{{invoice.InvoiceId}}">library_books</i>
+        </mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="InvoiceId">
+      <mat-header-cell *matHeaderCellDef>Invoice Id</mat-header-cell>
+      <mat-cell *matCellDef="let transaction">{{transaction.InvoiceId}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="ProductId">
+      <mat-header-cell *matHeaderCellDef> ProductId </mat-header-cell>
+      <mat-cell *matCellDef="let transaction"> {{transaction.ProductId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let product">
+        <i mat-icon class="material-icons orange" color="warn" routerLink="/product/update/{{product.ProductId}}">edit</i>
+        <i mat-icon class="material-icons red" routerLink="/product/delete/{{product.ProductId}}">delete</i>
+      </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>

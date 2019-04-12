@@ -14,8 +14,16 @@ export class InvoiceService {
     return this._http.get(`${environment.Api_Url}api/Invoice`, {headers: this.getHeaders()});
   }
 
+  getInvoiceById(id:string){
+    return this._http.get(`${environment.Api_Url}api/Invoice/${id}`, {headers: this.getHeaders()});
+  }
+
   createInvoice(invoice: Invoice){
     return this._http.post(`${environment.Api_Url}api/Invoice`, invoice, {headers: this.getHeaders()});
+  }
+
+  deleteInvoice(id: number){
+    return this._http.delete(`${environment.Api_Url}api/Invoice/${id}`, {headers: this.getHeaders()});
   }
 
   private getHeaders(){

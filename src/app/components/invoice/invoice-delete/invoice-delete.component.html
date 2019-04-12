@@ -1,3 +1,32 @@
-<p>
-  invoice-delete works!
-</p>
+<h1>Delete Invoice</h1>
+<h4>Are you sure you want to delete this Invoice?</h4>
+<hr />
+<div *ngIf="invoice" class="detail">
+  <div>
+    <label for="">Invoice Id: </label>
+    <span>{{invoice.InvoiceId}}</span>
+  </div>
+  <div>
+    <label for="">Company Name: </label>
+    <span>{{invoice.CompanyName}}</span>
+  </div>
+  <div>
+    <label for="">Company Address: </label>
+    <span>${{invoice.CompanyAddress}}</span>
+  </div>
+  <div>
+    <label for="">Bill Name: </label>
+    <span>{{invoice.BillName}}</span>
+  </div>
+  <div>
+    <label for="">Bill Address: </label>
+    <span>${{invoice.BillAddress}}</span>
+  </div>
+  <div>
+    <label for="">Grand Total: </label>
+    <span>${{invoice.GrandTotal}}</span>
+  </div>
+</div>
+
+<button mat-button color="warn" (click)="onDelete()">Delete</button>|
+<button mat-button color="primary" routerLink="/invoice">Back to List</button>
