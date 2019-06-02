@@ -22,6 +22,10 @@ export class InvoiceService {
     return this._http.post(`${environment.Api_Url}api/Invoice`, invoice, {headers: this.getHeaders()});
   }
 
+  updateInvoice(invoice: Invoice){
+    return this._http.put(`${environment.Api_Url}api/Invoice`, invoice, {headers: this.getHeaders()});
+  }
+
   deleteInvoice(id: number){
     return this._http.delete(`${environment.Api_Url}api/Invoice/${id}`, {headers: this.getHeaders()});
   }

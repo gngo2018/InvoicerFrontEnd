@@ -1,3 +1,37 @@
-<p>
-  invoice-update works!
-</p>
+<h1>Edit Invoice</h1>
+<hr>
+
+<div *ngIf="invoice">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editInvoiceForm">
+    <div>
+      <div hidden>
+        <mat-form-field>
+          <input matInput placeholder="InvoiceId" formControlName="InvoiceId" type="InvoiceId" required [value]="invoice.InvoiceId" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Company Name" formControlName="CompanyName" type="CompanyName" required [value]="invoice.CompanyName" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Company Address" formControlName="CompanyAddress" type="CompanyAddress" required [value]="invoice.CompanyAddress" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Bill Name" formControlName="BillName" type="BillName" required [value]="invoice.BillName" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Bill Address" formControlName="BillAddress" type="BillAddress" required [value]="invoice.BillAddress" />
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+  </form>
+</div>
+
+<a mat-button routerLink="/invoice">Back to List</a>

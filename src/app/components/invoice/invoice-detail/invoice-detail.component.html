@@ -26,13 +26,29 @@
     <label for="">Created At: </label>
     <span>{{invoice.CreatedUtc}}</span>
   </div>
+  <div *ngFor="let product of products">
+  <div>
+    <hr />
+    <label for="">P Name: </label>
+    <span>{{product.ProductName}}</span>
+  </div>
+  <div>
+    <label for="">P Price: </label>
+    <span>{{product.ProductPrice}}</span>
+  </div>
+  <div>
+    <label for="">P Quantity: </label>
+    <span>{{product.Quantity}}</span>
+  </div>
+  <div>
+    <label for="">P Total Price: </label>
+    <span>{{product.TotalPrice}}</span>
+  </div>
+  </div>
+  <hr/>
   <div>
     <label for="">Grand Total: </label>
     <span>{{invoice.GrandTotal}}</span>
-  </div>
-  <div>
-    <label for="">P Name: </label>
-    <span>{{invoice.ProductName}}</span>
   </div>
 </div>
 <h1>Product List</h1>
