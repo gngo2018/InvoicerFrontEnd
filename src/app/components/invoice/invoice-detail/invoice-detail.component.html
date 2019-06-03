@@ -1,97 +1,111 @@
-<h1>Invoice Details</h1>
-
-<hr />
-<div *ngIf="invoice" class="detail">
-  <div>
-    <label for="">Invoice Id: </label>
-    <span>{{invoice.InvoiceId}}</span>
+<div *ngIf="invoice">
+  <div class="detail">
+    <h1>Invoice Details</h1>
+    <button mat-raised-button color="primary" class="button" routerLink="/invoice">Back to Invoices</button>
+    <button mat-raised-button color="primary" class="button" routerLink="/product">Back to Products</button>
   </div>
-  <div>
-    <label for="">Company Name: </label>
-    <span>{{invoice.CompanyName}}</span>
+  <hr />
+  <div class="invoiceDetail">
+    <div>
+      <label for="">Invoice Id: </label>
+      <span>{{invoice.InvoiceId}}</span>
+    </div>
+    <div>
+      <label for="">Created At: </label>
+      <span>{{invoice.CreatedUtc}}</span>
+    </div>
+    <br />
+    <div>
+      <label for="">Company Name: </label>
+      <span>{{invoice.CompanyName}}</span>
+    </div>
+    <div>
+      <label for="">Company Address: </label>
+      <span>{{invoice.CompanyAddress}}</span>
+    </div>
+    <br />
+    <div>
+      <label for="">Bill Name: </label>
+      <span>{{invoice.BillName}}</span>
+    </div>
+    <div>
+      <label for="">Bill Address: </label>
+      <span>{{invoice.BillAddress}}</span>
+    </div>
   </div>
-  <div>
-    <label for="">Company Address: </label>
-    <span>{{invoice.CompanyAddress}}</span>
+  <hr />
+  <!-- This Code Solved the issue! -->
+  <div class="productList">
+    <h1>Product List</h1>
+    <div *ngFor="let product of invoice.ProductList">
+      <div>
+        <h3>Product Name: {{product.ProductName}}</h3>
+      </div>
+      <div>
+        <label for="">P Price: </label>
+        <span>${{product.ProductPrice}}</span>
+      </div>
+      <div>
+        <label for="">P Quantity: </label>
+        <span>{{product.Quantity}}</span>
+      </div>
+      <div>
+        <label for="">P Total Price: </label>
+        <span>${{product.TotalPrice}}</span>
+      </div>
+      <!-- For Later version 2.0
+      <button mat-raised-button color="primary" routerLink="/product/detail/{{product.ProductId}}">Details</button>
+      <button mat-raised-button color="primary" routerLink="/product/update/{{product.ProductId}}">Edit</button> -->
+    </div>
   </div>
-  <div>
-    <label for="">Bill Name: </label>
-    <span>{{invoice.BillName}}</span>
+  <hr />
+  <div class="total">
+    <h1>Grand Total: ${{invoice.GrandTotal}}</h1>
   </div>
-  <div>
-    <label for="">Bill Address: </label>
-    <span>{{invoice.BillAddress}}</span>
-  </div>
-  <div>
-    <label for="">Created At: </label>
-    <span>{{invoice.CreatedUtc}}</span>
-  </div>
-  <div *ngFor="let product of products">
-  <div>
-    <hr />
-    <label for="">P Name: </label>
-    <span>{{product.ProductName}}</span>
-  </div>
-  <div>
-    <label for="">P Price: </label>
-    <span>{{product.ProductPrice}}</span>
-  </div>
-  <div>
-    <label for="">P Quantity: </label>
-    <span>{{product.Quantity}}</span>
-  </div>
-  <div>
-    <label for="">P Total Price: </label>
-    <span>{{product.TotalPrice}}</span>
-  </div>
-  </div>
-  <hr/>
-  <div>
-    <label for="">Grand Total: </label>
-    <span>{{invoice.GrandTotal}}</span>
-  </div>
+  <button mat-raised-button color="primary" class="payButton" routerLink="/product">Pay Invoice</button>
 </div>
-<h1>Product List</h1>
+
+
 <!--TODO: Enter Product List Items-->
-<div>
-  <mat-table #table [dataSource]="dataSource">
-
-    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
-
-    <ng-container matColumnDef="details">
-        <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-        <mat-cell *matCellDef="let product" class="matColumnSize"> 
-          <i class="material-icons" routerLink="/product/detail/{{product.ProductId}}">library_books</i>
+<!-- <div>
+    <mat-table #table [dataSource]="dataSource">
+  
+      <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+  
+      <ng-container matColumnDef="details">
+          <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+          <mat-cell *matCellDef="let product" class="matColumnSize"> 
+            <i class="material-icons" routerLink="/product/detail/{{product.ProductId}}">library_books</i>
+          </mat-cell>
+        </ng-container>
+  
+      <ng-container matColumnDef="ProductName">
+        <mat-header-cell *matHeaderCellDef>Product Name</mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{product.ProductName}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="ProductPrice">
+        <mat-header-cell *matHeaderCellDef>Product Price</mat-header-cell>
+        <mat-cell *matCellDef="let product">${{product.ProductPrice}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="Quantity">
+        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+        <mat-cell *matCellDef="let product"> {{product.Quantity}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="TotalPrice">
+          <mat-header-cell *matHeaderCellDef> Total Price </mat-header-cell>
+          <mat-cell *matCellDef="let product">${{product.TotalPrice}} </mat-cell>
+        </ng-container>
+      
+      <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let product">
+          <i mat-icon class="material-icons orange" color="warn" routerLink="/product/update/{{product.ProductId}}">edit</i>
+          <i mat-icon class="material-icons red" routerLink="/product/delete/{{product.ProductId}}">delete</i>
         </mat-cell>
       </ng-container>
-
-    <ng-container matColumnDef="ProductName">
-      <mat-header-cell *matHeaderCellDef>Product Name</mat-header-cell>
-      <mat-cell *matCellDef="let product"> {{product.ProductName}} </mat-cell>
-    </ng-container>
-    
-    <ng-container matColumnDef="ProductPrice">
-      <mat-header-cell *matHeaderCellDef>Product Price</mat-header-cell>
-      <mat-cell *matCellDef="let product">${{product.ProductPrice}} </mat-cell>
-    </ng-container>
-    
-    <ng-container matColumnDef="Quantity">
-      <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-      <mat-cell *matCellDef="let product"> {{product.Quantity}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="TotalPrice">
-        <mat-header-cell *matHeaderCellDef> Total Price </mat-header-cell>
-        <mat-cell *matCellDef="let product">${{product.TotalPrice}} </mat-cell>
-      </ng-container>
-    
-    <ng-container matColumnDef="buttons">
-      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-      <mat-cell *matCellDef="let product">
-        <i mat-icon class="material-icons orange" color="warn" routerLink="/product/update/{{product.ProductId}}">edit</i>
-        <i mat-icon class="material-icons red" routerLink="/product/delete/{{product.ProductId}}">delete</i>
-      </mat-cell>
-    </ng-container>
-  </mat-table>
-</div>
+    </mat-table>
+  </div> -->

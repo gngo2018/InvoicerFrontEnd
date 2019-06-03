@@ -5,7 +5,7 @@
     <div>
       <div>
         <mat-form-field>
-          <mat-select placeholder="Invoice" formControlName="InvoiceId" type="InvoiceId" required>
+          <mat-select placeholder="Invoice Id" formControlName="InvoiceId" type="InvoiceId" required>
             <mat-option *ngFor="let invoice of invoiceSelect" [value]="invoice.InvoiceId">
               {{invoice.InvoiceId}}
             </mat-option>

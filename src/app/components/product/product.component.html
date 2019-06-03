@@ -11,7 +11,7 @@
     <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
         <mat-cell *matCellDef="let product" class="matColumnSize"> 
-          <i class="material-icons" routerLink="/product/detail/{{product.ProductId}}">library_books</i>
+          <i class="material-icons" routerLink="/transaction/create">Add to Invoice</i>
         </mat-cell>
       </ng-container>
 
@@ -38,8 +38,9 @@
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
       <mat-cell *matCellDef="let product">
-        <i mat-icon class="material-icons orange" color="warn" routerLink="/product/update/{{product.ProductId}}">edit</i>
-        <i mat-icon class="material-icons red" routerLink="/product/delete/{{product.ProductId}}">delete</i>
+        <i mat-icon class="material-icons red" routerLink="/product/detail/{{product.ProductId}}">detail | </i>
+        <i mat-icon class="material-icons orange" color="warn" routerLink="/product/update/{{product.ProductId}}"> edit | </i>
+        <i mat-icon class="material-icons red" routerLink="/product/delete/{{product.ProductId}}"> delete</i>
       </mat-cell>
     </ng-container>
   </mat-table>
